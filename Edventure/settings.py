@@ -121,7 +121,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # -----------------------
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins during development
 
+
 # -----------------------
 # APP BRANDING
 # -----------------------
 APP_NAME = "Edventure"  # or whatever your store name is
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # load .env
+
+# GOOGLE_API_KEY = os.getenv("AIzaSyBcnj3kWdzJVeDyH2WTpNx3u95Yc17YFdI")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+CORS_ALLOW_ALL_ORIGINS = True
+if not GOOGLE_API_KEY:
+    print("⚠️ WARNING: GOOGLE_API_KEY is not set. Add it to your .env file!")
+
